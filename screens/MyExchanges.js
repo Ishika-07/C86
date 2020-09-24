@@ -93,6 +93,7 @@ export default class MyExchanges extends React.Component{
       keyExtractor =(index)=> index.toString()
 
       renderItem=({item,i})=>{
+       return(
         <ListItem
         key={i}
         title={item.name}
@@ -117,7 +118,7 @@ export default class MyExchanges extends React.Component{
             
         }
         bottomDivider
-        />
+        />)
       }
   
     render(){
@@ -127,8 +128,11 @@ export default class MyExchanges extends React.Component{
             <MyHeader navigation={this.props.navigation} title="My Exchanges"/>
 
             <View style={{flex:0.9}}>
+            {console.log(this.state.allExchanges)}
               {
+               
                 this.state.allExchanges.length === 0
+                
                 ?(
                   <View style={styles.subtitle}>
                     <Text style={{ fontSize: 20}}>List of all Exchanges</Text>
